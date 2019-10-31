@@ -1,6 +1,6 @@
-package com.jundana.moviecatalogue.Helper;
+package com.jundana.moviecatalogue.helper;
 
-import com.jundana.moviecatalogue.Model.Movie;
+import com.jundana.moviecatalogue.model.Movie;
 import com.jundana.moviecatalogue.R;
 
 import java.util.ArrayList;

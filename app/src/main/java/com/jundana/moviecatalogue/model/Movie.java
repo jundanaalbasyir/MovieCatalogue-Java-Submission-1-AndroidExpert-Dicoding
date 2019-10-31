@@ -1,4 +1,4 @@
-package com.jundana.moviecatalogue.Model;
+package com.jundana.moviecatalogue.model;
 
 import android.annotation.SuppressLint;
 import android.os.Parcel;
@@ -45,4 +45,26 @@ public class Movie implements Parcelable {
         dest.writeString(this.movieName);
         dest.writeString(this.movieDetail);
     }
+
+    public Movie() {
+
+    }
+
+    private Movie(Parcel in) {
+        this.photo = in.readInt();
+        this.movieName = in.readString();
+        this.movieDetail = in.readString();
+    }
+
+    public static final Parcelable.Creator<Movie> CREATOR = new Parcelable.Creator<Movie>() {
+        @Override
+        public Movie createFromParcel(Parcel source) {
+            return new Movie(source);
+        }
+
+        @Override
+        public Movie[] newArray(int size) {
+            return new Movie[size];
+        }
+    };
 }

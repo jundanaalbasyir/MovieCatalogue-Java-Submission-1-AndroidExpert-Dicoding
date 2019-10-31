@@ -1,4 +1,4 @@
-package com.jundana.moviecatalogue.Adapter;
+package com.jundana.moviecatalogue.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
-import com.jundana.moviecatalogue.Model.Movie;
+import com.jundana.moviecatalogue.model.Movie;
 import com.jundana.moviecatalogue.MovieDetailActivity;
 import com.jundana.moviecatalogue.R;
 
@@ -66,11 +66,8 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ListViewHold
         public void onClick(View v) {
             Movie movies = listMovie.get(getAdapterPosition());
             Intent intent = new Intent(mCtx, MovieDetailActivity.class);
-            intent.putExtra("photoItem", movies.getPhoto());
-            intent.putExtra("itemName", movies.getMovieName());
-            intent.putExtra("itemNameDetail", movies.getMovieDetail());
+            intent.putExtra("MOVIE", movies);
             mCtx.startActivity(intent);
         }
-
     }
 }

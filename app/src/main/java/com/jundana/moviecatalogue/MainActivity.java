@@ -6,9 +6,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
-import com.jundana.moviecatalogue.Adapter.MovieAdapter;
-import com.jundana.moviecatalogue.Helper.MoviesData;
-import com.jundana.moviecatalogue.Model.Movie;
+import com.jundana.moviecatalogue.adapter.MovieAdapter;
+import com.jundana.moviecatalogue.helper.MoviesData;
+import com.jundana.moviecatalogue.model.Movie;
 
 import java.util.ArrayList;
 

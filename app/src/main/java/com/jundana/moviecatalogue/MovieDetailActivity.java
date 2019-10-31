@@ -1,6 +1,7 @@
 package com.jundana.moviecatalogue;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.bumptech.glide.Glide;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
+import com.jundana.moviecatalogue.model.Movie;
 
 import java.util.Objects;
 
@@ -41,21 +43,16 @@ public class MovieDetailActivity extends AppCompatActivity {
         imgPhoto = findViewById(R.id.img_item_photo);
         tvItemDetail = findViewById(R.id.tv_item_detail);
 
-        if(getIntent().getExtras()!=null) {
-            final Bundle bundle = getIntent().getExtras();
+        Intent intent = getIntent();
+        Movie getMovie = intent.getParcelableExtra("MOVIE");
 
-            int itemPhoto = bundle.getInt("photoItem");
+        int photo = Objects.requireNonNull(getMovie).getPhoto();
+        String movieName = getMovie.getMovieName();
+        String movieDetail = getMovie.getMovieDetail();
 
-            Glide.with(this)
-                    .load(itemPhoto)
-                    .into(imgPhoto);
-
-            String itemName = bundle.getString("itemName");
-            collapsingToolbar.setTitle(itemName);
-            collapsingToolbar.setExpandedTitleColor(Color.BLACK);
-            String itemNameDetail = bundle.getString("itemNameDetail");
-            tvItemDetail.setText(itemNameDetail);
-        }
-
+        Glide.with(this).load(photo).into(imgPhoto);
+        collapsingToolbar.setTitle(movieName);
+        collapsingToolbar.setExpandedTitleColor(Color.BLACK);
+        tvItemDetail.setText(movieDetail);
     }
 }
